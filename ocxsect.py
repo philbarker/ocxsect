@@ -11,9 +11,9 @@ class OCXMetadata(Extension):
     def extendMarkdown(self, md):
         md.registerExtension(self)
         self.md = md
-        md.treeprocessors.register(OCXTreeProcessor(md), 'ocxsection', 29)
+        md.treeprocessors.register(OCXSectionTreeProcessor(md), 'ocxsection', 29)
 
-class OCXTreeProcessor(Treeprocessor):
+class OCXSectionTreeProcessor(Treeprocessor):
     START_SECTION_RE = re.compile('~~([SCHFNDA])([^~]*)~~')
     END_SECTION_RE = re.compile('~~/([SCHFNDA])~~')
 
