@@ -1,8 +1,9 @@
+# Sectioning in markdown
 An extension to [python markdown](https://python-markdown.github.io/) that allows you to add semantic HTML5 sectioning elements into the generated html by putting strings such as `~~S~~` at the start of a section and `~~/S~~` at the end. Sectioning elements supported are `section` (S), `chapter` (C) `header` (H) `footer` (F) `nav` (N) `div` (D) and `article` (A). These can be given identifiers by add text after the sectioning element letter, e.g. `~~S lesson1~~`. Spaces in the identifier are removed. So `~~A activity 1~~` becomes `<article id="activity1">`. A schematic representation of the structure (useful for debugging) is also generated and stored as the markdown.Markdown.tree_diagram property of the markdown object.
 
 ## Example
 
-###Markdown input
+### Markdown input
 
 ```
 ~~C lesson1~~
@@ -28,7 +29,7 @@ This is in the footer of the chapter
 ~~/C~~
 ```
 
-###Schematic representation of structure
+### Schematic representation of structure
 
 ```
 |--chapter{'id': 'lesson1'}
@@ -43,7 +44,7 @@ This is in the footer of the chapter
 |--p
 ```
 
-###HTML output
+### HTML output
 
 ```
 <chapter id="lesson1">
