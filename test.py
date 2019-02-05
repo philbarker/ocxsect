@@ -2,27 +2,18 @@ import markdown, unittest
 from ocxmd import OCXMetadata
 TESTINPUT = '''
 ~~C lesson1~~
-
-~~H~~
-#Markdown structure test
+~~h~~
+# Markdown structure test
 This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.
-
-~~/H~~
-
+~~/h~~
 ~~S section 1~~
-#Activity 1
+# Activity 1
 This is in a regular section (id #section1) of a chapter
-
 ~~/S~~
-
 ~~F~~
-
 This is in the footer of the chapter
-
 ~~/F~~
-
 ~~/C~~
-
 This is after the chapter
 '''
 HTMLEXPECTED = '''<chapter id="lesson1"><header><h1>Markdown structure test</h1><p>This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.</p></header><section id="section1"><h1>Activity 1</h1><p>This is in a regular section (id #section1) of a chapter</p></section><footer><p>This is in the footer of the chapter</p></footer></chapter><p>This is after the chapter</p>'''
