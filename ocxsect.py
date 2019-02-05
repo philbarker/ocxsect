@@ -44,10 +44,8 @@ class OCXSectionPreprocessor(Preprocessor):
                 if (new_lines and '' != new_lines[-1]):
                 # make sure line before is blank
                     new_lines.append('')
-
             new_lines.append(line)
         return new_lines
-
 
 class OCXSectionTreeProcessor(Treeprocessor):
     START_RE = re.compile(START_SECTION, re.IGNORECASE)
