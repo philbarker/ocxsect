@@ -5,12 +5,14 @@ from ocxmd import OCXMetadata
 # - no blank lines around section tags
 # - section tag on first line
 # - section id with space in it
-TESTINPUT = '''~~C lesson1~~
+# - section id with a # in it
+# - section id with a " in it
+TESTINPUT = '''~~C "lesson1">~~
 ~~h~~
 # Markdown structure test
 This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.
 ~~/h~~
-~~S section 1~~
+~~S section #1~~
 # Activity 1
 This is in a regular section (id #section1) of a chapter
 ~~/S~~

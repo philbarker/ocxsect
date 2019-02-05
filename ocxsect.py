@@ -48,8 +48,9 @@ class OCXSectionPreprocessor(Preprocessor):
         return new_lines
 
 class OCXSectionTreeProcessor(Treeprocessor):
-    START_RE = re.compile(START_SECTION, re.IGNORECASE)
-    END_RE = re.compile(END_SECTION, re.IGNORECASE)
+    START_RE = re.compile(START_SECTION)
+    END_RE = re.compile(END_SECTION)
+    BAD_URI_FRAG_CHARS = '[^A-Za-z0-9!$-()+]' #really stingy in what's allowed
 
     def run(self, root):
         ancestors = [root]
@@ -100,7 +101,14 @@ class OCXSectionTreeProcessor(Treeprocessor):
                 else :
                     newsect_type = 'div'
                 # find id attribute of new section, if any
-                attr = {"id": start_match.group(2).replace(' ','')} if start_match.group(2) else {}
+                if start_match.group(2):
+                    # make sure id has no bad characters in it
+                    print(start_match.group(2))
+                    print(self.BAD_URI_FRAG_CHARS)
+                    i = re.sub(self.BAD_URI_FRAG_CHARS,'',start_match.group(2))
+                    attr = {"id": i}
+                else:
+                    attr = {}
                 # create new section
                 newsect = ET.SubElement(new_ancestors[-1], newsect_type, attr)
                 # this new section will be the new parent until we get to end marker
