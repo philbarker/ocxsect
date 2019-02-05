@@ -1,7 +1,6 @@
 import markdown, unittest
 from ocxmd import OCXMetadata
-TESTINPUT = '''
-~~C lesson1~~
+TESTINPUT = '''~~C lesson1~~
 ~~h~~
 # Markdown structure test
 This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.

@@ -33,14 +33,16 @@ class OCXSectionPreprocessor(Preprocessor):
                 # make sure it is upper case
                 after_tag = True
                 line = line.replace(match.group(1), match.group(1).upper())
-                if ('' != new_lines[-1]): # make sure line before is blank
+                if (new_lines and '' != new_lines[-1]):
+                # make sure line before is blank
                     new_lines.append('')
             match = self.END_RE.match(line)
             if (match): # we have an end tag,
                 # make sure it is upper case
                 after_tag = True
                 line = line.replace(match.group(1), match.group(1).upper())
-                if ('' != new_lines[-1]): # make sure line before is blank
+                if (new_lines and '' != new_lines[-1]):
+                # make sure line before is blank
                     new_lines.append('')
 
             new_lines.append(line)
