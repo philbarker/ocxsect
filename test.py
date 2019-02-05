@@ -1,5 +1,10 @@
 import markdown, unittest
 from ocxmd import OCXMetadata
+#test input with various potential issues
+# - lower case and upper case tags
+# - no blank lines around section tags
+# - section tag on first line
+# - section id with space in it
 TESTINPUT = '''~~C lesson1~~
 ~~h~~
 # Markdown structure test
