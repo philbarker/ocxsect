@@ -103,8 +103,6 @@ class OCXSectionTreeProcessor(Treeprocessor):
                 # find id attribute of new section, if any
                 if start_match.group(2):
                     # make sure id has no bad characters in it
-                    print(start_match.group(2))
-                    print(self.BAD_URI_FRAG_CHARS)
                     i = re.sub(self.BAD_URI_FRAG_CHARS,'',start_match.group(2))
                     attr = {"id": i}
                 else:
