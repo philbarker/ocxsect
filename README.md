@@ -1,5 +1,5 @@
 # Sectioning in markdown
-An extension to [python markdown](https://python-markdown.github.io/) that allows you to add semantic HTML5 sectioning elements into the generated html by putting strings such as `~~S~~` at the start of a section and `~~/S~~` at the end. Sectioning elements supported are `section` (S), `chapter` (C) `header` (H) `footer` (F) `nav` (N) `div` (D) and `article` (A). These can be given identifiers by add text after the sectioning element letter, e.g. `~~S lesson1~~`. Spaces in the identifier are removed. So `~~A activity 1~~` becomes `<article id="activity1">`. A schematic representation of the structure (useful for debugging) is also generated and stored as the markdown.Markdown.tree_diagram property of the markdown object.
+An extension to [python markdown](https://python-markdown.github.io/) that allows you to add semantic HTML5 sectioning elements into the generated html by putting strings such as `~~S~~` at the start of a section and `~~/S~~` at the end. Sectioning elements supported are `<section>`, `<chapter>`, `<header>`, `<footer>`, `<nav>`, `<div>`, and `<article>`. These can be given identifiers by adding text after the sectioning element letter, e.g. `~~S section1~~` to give `<section id="section1">`. A schematic representation of the structure (useful for debugging) is also generated and stored as the markdown.Markdown.tree_diagram property of the markdown object.
 
 ## Example
 
@@ -70,7 +70,7 @@ Python 3 (tested on Python 3.6.7)
 
 Designed for use with [MkDocs](https://www.mkdocs.org/#installation)
 
-Uses python packages [Python-Markdown](https://python-markdown.github.io/install/), [Python re](https://docs.python.org/3/library/re.html) and [xml.etree.ElementTree](https://docs.python.org/3.7/library/xml.etree.elementtree.html).
+Uses python packages [Python-Markdown](https://python-markdown.github.io/install/), [Python re](https://docs.python.org/3/library/re.html), [xml.etree.ElementTree](https://docs.python.org/3.7/library/xml.etree.elementtree.html) and [re - Regular expression operations](https://docs.python.org/3/library/re.html)
 
 Installation with setup.py requires [setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html#installing-setuptools)
 
@@ -89,22 +89,12 @@ __Warning:__ exercise caution this early release software with no warranty, test
 (venv)$ python test.py
 ```
 
+## Usage
+To create a new section put `~~X~~` on a line by itself, where X represents the type of HTML5 sectioning element you want to create. Sectioning elements supported are `section` (S), `chapter` (C) `header` (H) `footer` (F) `nav` (N) `div` (D) and `article` (A). These can be given identifiers by add text after the sectioning element letter, e.g. `~~S lesson1~~`. In order to avoid non-URL safe characters in the identifier any character not in the set A-Z, a-z, 0-9, !$-()+ is removed. So `~~A #activity 1~~` becomes `<article id="activity1">`.  
 
 ## Usage in MkDocs
 After installation, add `ocxsect` to your extensions block in mkdocs.yml:
 ```
 markdown_extensions:
   - ocxsect
-```
-
-To create a new section put `~~X~~` on a line by itself with an empty line above and below, where X represents the type of HTML5 sectioning element you want to create. Sectioning elements supported are `section` (S), `chapter` (C) `header` (H) `footer` (F) `nav` (N) `div` (D) and `article` (A). These can be given identifiers by add text after the sectioning element letter, e.g. `~~S lesson1~~`. Spaces in the identifier are removed. So `~~A activity 1~~` becomes `<article id="activity1">`.  e.g.:
-
-```
-
-~~H~~
-#Markdown structure test
-This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.
-
-~~/H~~
-
 ```
