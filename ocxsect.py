@@ -121,7 +121,6 @@ class OCXSectionTreeProcessor(Treeprocessor):
                 node.remove(child) # remove from original place in tree
                 new_ancestors[-1].append(child) # append to the latest new ancestor
                 new_ancestors.append(child)
-
                 self.section(child, new_ancestors) # recurse through nodes children
         new_ancestors.pop()
 
