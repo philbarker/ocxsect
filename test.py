@@ -1,5 +1,5 @@
 import markdown, unittest
-from ocxmd import OCXMetadata
+from ocxsect import OCXMetadata
 #test input with various potential issues
 # - lower case and upper case tags
 # - no blank lines around section tags
