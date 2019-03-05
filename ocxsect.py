@@ -15,7 +15,9 @@ class OCXMetadata(Extension):
         md.registerExtension(self)
         self.md = md
         md.preprocessors.register(OCXSectionPreprocessor(md), "ocxsection", 29)
-        md.treeprocessors.register(OCXSectionTreeProcessor(md), "ocxsection", 29)
+        md.treeprocessors.register(
+            OCXSectionTreeProcessor(md), "ocxsection", 29
+        )
 
 
 class OCXSectionPreprocessor(Preprocessor):
@@ -55,7 +57,9 @@ class OCXSectionPreprocessor(Preprocessor):
 class OCXSectionTreeProcessor(Treeprocessor):
     START_RE = re.compile(START_SECTION)
     END_RE = re.compile(END_SECTION)
-    BAD_URI_FRAG_CHARS = "[^A-Za-z0-9!$-()+]"  # really stingy in what's allowed
+    BAD_URI_FRAG_CHARS = (
+        "[^A-Za-z0-9!$-()+]"
+    )  # really stingy in what's allowed
 
     def run(self, root):
         ancestors = [root]
@@ -108,7 +112,9 @@ class OCXSectionTreeProcessor(Treeprocessor):
                 # find id attribute of new section, if any
                 if start_match.group(2):
                     # make sure id has no bad characters in it
-                    i = re.sub(self.BAD_URI_FRAG_CHARS, "", start_match.group(2))
+                    i = re.sub(
+                        self.BAD_URI_FRAG_CHARS, "", start_match.group(2)
+                    )
                     attr = {"id": i}
                 else:
                     attr = {}
@@ -124,9 +130,13 @@ class OCXSectionTreeProcessor(Treeprocessor):
                 new_ancestors.pop()
             else:
                 node.remove(child)  # remove from original place in tree
-                new_ancestors[-1].append(child)  # append to the latest new ancestor
+                new_ancestors[-1].append(
+                    child
+                )  # append to the latest new ancestor
                 new_ancestors.append(child)
-                self.section(child, new_ancestors)  # recurse through nodes children
+                self.section(
+                    child, new_ancestors
+                )  # recurse through nodes children
         new_ancestors.pop()
 
     def set_tree_diagram(self, node, depth):
@@ -134,7 +144,9 @@ class OCXSectionTreeProcessor(Treeprocessor):
         for child in list(node):
             attrib = str(child.attrib) if child.attrib else ""
             line = "\n" + ldepth * "    " + "|--"
-            self.md.tree_diagram = self.md.tree_diagram + line + child.tag + attrib
+            self.md.tree_diagram = (
+                self.md.tree_diagram + line + child.tag + attrib
+            )
             self.set_tree_diagram(child, ldepth)
 
 
