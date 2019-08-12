@@ -107,8 +107,8 @@ class OCXSectionTreeProcessor(Treeprocessor):
                     newsect_type = "nav"
                 elif "D" == start_match.group(1):
                     newsect_type = "div"
-                else:
-                    newsect_type = "div"
+#                else:
+                    # regex won't match anything else
                 # find id attribute of new section, if any
                 if start_match.group(2):
                     # make sure id has no bad characters in it
