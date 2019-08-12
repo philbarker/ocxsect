@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/philbarker/ocxsect.svg?branch=master)](https://travis-ci.org/philbarker/ocxsect)
+[![Coverage](https://codecov.io/gh/philbarker/ocxsect/branch/master/graph/badge.svg)
 
 # Sectioning in markdown
 An extension to [python markdown](https://python-markdown.github.io/) that allows you to add semantic HTML5 sectioning elements into the generated html by putting strings such as `~~S~~` at the start of a section and `~~/S~~` at the end. Sectioning elements supported are `<section>`, `<chapter>`, `<header>`, `<footer>`, `<nav>`, `<div>`, and `<article>`. These can be given identifiers by adding text after the sectioning element letter, e.g. `~~S section1~~` to give `<section id="section1">`. A schematic representation of the structure (useful for debugging) is also generated and stored as the markdown.Markdown.tree_diagram property of the markdown object.
