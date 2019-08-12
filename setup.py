@@ -4,10 +4,7 @@ setup(
     name="ocxsect",
     version="0.1.2",
     py_modules=["ocxsect"],
-    install_requires=[
-        "setuptools>=40.6",
-        "pytest",
-        "pytest-cov"],
+    install_requires=[ "setuptools>=40.6"],
     author="Phil Barker",
     author_email="phil.barker@pjjk.co.uk",
     url="https://github.com/philbarker/ocxmd",
