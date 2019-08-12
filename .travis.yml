@@ -12,4 +12,6 @@ install:
   - pip install codecov
 
 script:
-  - pytest --cov=ocxsect
+  - pytest --cov=ocxsect --cov-report=xml -v
+after_success:
+  codecov
