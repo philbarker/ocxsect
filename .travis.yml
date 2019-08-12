@@ -8,6 +8,10 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install pytest-cov
+  - pip install codecov
 
 script:
-  - pytest
+  - pytest --cov=ocxsect --cov-report=xml -v
+after_success:
+  codecov
