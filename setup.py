@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="ocxsect",
-    version="0.1.1",
+    version="0.1.2",
     py_modules=["ocxsect"],
     install_requires=["setuptools>=40.6"],
     author="Phil Barker",
