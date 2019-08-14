@@ -28,16 +28,24 @@ this is navigation, opened in UC, closed in lc
 ~~/F~~
 ~~/C~~
 This is after the chapter
+~~A~~
+An article after the chapter
+~~/A~~
 """
-HTMLEXPECTED = """<chapter id="lesson1"><header><h1>Markdown structure test</h1><p>This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.</p></header><section id="section1"><h1>Activity 1</h1><p>This is in a regular section (id #section1) of a chapter. The id has ilegal chars in it.</p><div><p>This is a division of a section.</p></div></section><footer><p>This is in the footer of the chapter</p><nav><p>this is navigation, opened in UC, closed in lc</p></nav></footer></chapter><p>This is after the chapter</p>"""
+HTMLEXPECTED = """<chapter id="lesson1"><header><h1>Markdown structure test</h1><p>This is in the header section of a chapter. The chapter has id #lesson1. The header has no id.</p></header><section id="section1"><h1>Activity 1</h1><p>This is in a regular section (id #section1) of a chapter. The id has ilegal chars in it.</p><div><p>This is a division of a section.</p></div></section><footer><p>This is in the footer of the chapter</p><nav><p>this is navigation, opened in UC, closed in lc</p></nav></footer></chapter><p>This is after the chapter</p>
+<article>
+<p>An article after the chapter</p>
+</article>"""
+#one day i will understand why the article has line breaks but others don't
 
-STRUCTUREEXPECTED = """\n    |--chapter{'id': 'lesson1'}\n        |--header\n            |--h1\n            |--p\n        |--section{'id': 'section1'}\n            |--h1\n            |--p\n            |--div\n                |--p\n        |--footer\n            |--p\n            |--nav\n                |--p\n    |--p"""
+STRUCTUREEXPECTED = """\n    |--chapter{'id': 'lesson1'}\n        |--header\n            |--h1\n            |--p\n        |--section{'id': 'section1'}\n            |--h1\n            |--p\n            |--div\n                |--p\n        |--footer\n            |--p\n            |--nav\n                |--p\n    |--p\n    |--article\n        |--p"""
 
 md = markdown.Markdown(extensions=["ocxsect"])
 html = md.convert(TESTINPUT)
 
 
 def test_html():
+    print(html)
     assert html == HTMLEXPECTED
 
 
