@@ -36,7 +36,7 @@ HTMLEXPECTED = """<chapter id="lesson1"><header><h1>Markdown structure test</h1>
 <article>
 <p>An article after the chapter</p>
 </article>"""
-#one day i will understand why the article has line breaks but others don't
+# one day i will understand why the article has line breaks but others don't
 
 STRUCTUREEXPECTED = """\n    |--chapter{'id': 'lesson1'}\n        |--header\n            |--h1\n            |--p\n        |--section{'id': 'section1'}\n            |--h1\n            |--p\n            |--div\n                |--p\n        |--footer\n            |--p\n            |--nav\n                |--p\n    |--p\n    |--article\n        |--p"""
 
