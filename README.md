@@ -20,6 +20,12 @@ __Warning:__  The xml.etree.ElementTree module is not secure against maliciously
 
 __Warning:__ exercise caution this early release software with no warranty, test this first in a virtual environment!
 
+Install from pypi:
+```
+(venv)$ pip install ocxsect
+```
+
+Or install from github:
 ```
 (venv)$ git clone https://github.com/philbarker/ocxsect.git
 (venv)$ cd ocxsect
