@@ -5,13 +5,13 @@
 An extension to [python markdown](https://python-markdown.github.io/) that allows you to add semantic HTML5 sectioning elements into the generated html by putting strings such as `~~S~~` at the start of a section and `~~/S~~` at the end. Sectioning elements supported are `<section>`, `<chapter>`, `<header>`, `<footer>`, `<nav>`, `<div>`, and `<article>`. These can be given identifiers by adding text after the sectioning element letter, e.g. `~~S section1~~` to give `<section id="section1">`. A schematic representation of the structure (useful for debugging) is also generated and stored as the markdown.Markdown.tree_diagram property of the markdown object.
 
 ## Requirements & dependencies
-Python 3 (tested on Python 3.6.7)
+Python 3 (tested on Python 3.6 and 3.7)
 
 Designed for use with [MkDocs](https://www.mkdocs.org/#installation)
 
 Uses python packages [Python-Markdown](https://python-markdown.github.io/install/), [Python re](https://docs.python.org/3/library/re.html), [xml.etree.ElementTree](https://docs.python.org/3.7/library/xml.etree.elementtree.html) and [re - Regular expression operations](https://docs.python.org/3/library/re.html)
 
-Installation with setup.py requires [setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html#installing-setuptools)
+Installation from github source with setup.py requires [setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html#installing-setuptools)
 
 Doesn't play nicely with other python markdown extensions that use `~~~` to delineate markup, notably it can lead to text being shown as struck through.
 
