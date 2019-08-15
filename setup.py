@@ -7,7 +7,7 @@ setup(
     install_requires=["setuptools>=40.6"],
     author="Phil Barker",
     author_email="phil.barker@pjjk.co.uk",
-    url="https://github.com/philbarker/ocxmd",
+    url="https://github.com/philbarker/ocxsect",
     description="A python markdown extension that allows you to add semantic HTML5 sectioning elements into the generated html.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
